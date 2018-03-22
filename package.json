@@ -1,0 +1,48 @@
+{
+  "name": "express-tutorial",
+  "version": "0.0.0",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "devstart": "nodemon index.js",
+    "test": "jest",
+    "testDev": "jest --watch"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "express": "~4.16.2",
+    "moment": "^2.21.0",
+    "request": "^2.85.0"
+  },
+  "devDependencies": {
+    "gherkin-jest": "^0.22.0",
+    "jest": "^22.4.2",
+    "jest-nunit-reporter": "^1.3.1",
+    "nodemon": "^1.14.11",
+    "supertest": "^3.0.0"
+  },
+  "jest": {
+    "testResultsProcessor": "./node_modules/jest-nunit-reporter",
+    "transform": {
+      "^.+\\.feature$": "gherkin-jest"
+    },
+    "setupFiles": [
+      "./features/saveTheWorld"
+    ],
+    "testMatch": [
+      "**/*.test.js",
+      "**/*.feature"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "feature"
+    ]
+  },
+  "jestNunitReporter": {
+    "outputPath": "reports/",
+    "outputFileName": "custom-report.xml"
+  }
+}
